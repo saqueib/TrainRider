@@ -4,6 +4,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="panel panel-default">
                     <div class="panel-body text-center">
                         <h1>Hi <span class="text-primary">{{ Auth::user()->name }}</span>, your plan details.</h1>
@@ -74,7 +85,7 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
 
-        Stripe.setPublishableKey('pk_test_frD0Nvi72TXM84hcpFi8RF5d');
+        Stripe.setPublishableKey("{{ config('services.stripe.secret') }}");
 
         $(function() {
             var $form = $('#payment-form');
