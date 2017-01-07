@@ -85,7 +85,7 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
 
-        Stripe.setPublishableKey("{{ config('services.stripe.secret') }}");
+        Stripe.setPublishableKey("{{ config('services.stripe.key') }}");
 
         $(function() {
             var $form = $('#payment-form');

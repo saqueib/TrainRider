@@ -32,7 +32,7 @@ class PlanController extends Controller
     public function subscribe(Request $request)
     {
         // Validate request
-        $this->validate( $request, [ 'stripeToken', 'plan'] );
+        $this->validate( $request, [ 'stripeToken' => 'required', 'plan' => 'required'] );
 
         // User chosen plan
         $pickedPlan = $request->get('plan');
@@ -71,7 +71,7 @@ class PlanController extends Controller
             }
         } catch (\Exception $e) {
             // Catch any error from Stripe API request and show
-            redirect()->back()->with('status', $e->getMessage());
+           return redirect()->back()->withErrors(['status' => $e->getMessage()]);
         }
 
         return redirect()->route('home')->with('status', 'You are now subscribed to ' . $pickedPlan . ' plan.');

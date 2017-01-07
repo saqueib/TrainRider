@@ -16,7 +16,7 @@ class Plan
         try {
             // Fetch all the Plans and cache it
             return Cache::remember('stripe.plans', 60*24, function() {
-                return Plan::all()->data;
+                return \Stripe\Plan::all()->data;
             });
         } catch ( \Exception $e ) {
             return false;
