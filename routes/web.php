@@ -34,3 +34,9 @@ Route::group(['middleware' => ['auth']], function(){
 
     });
 });
+
+// Handling Stripe Webhooks
+Route::post(
+    'stripe/webhook',
+    '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
+);

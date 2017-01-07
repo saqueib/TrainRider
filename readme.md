@@ -1,5 +1,5 @@
 # TrainRider
-This is application show Subscription with coupon using Laravel Cashier & Stripe. Here is the tutorial link http://www.qcode.in/subscription-with-coupon-using-laravel-cashier-stripe
+This is application show Subscription with coupon using Laravel 5.3 Cashier & Stripe. Here is the tutorial link http://www.qcode.in/subscription-with-coupon-using-laravel-cashier-stripe
 
 
 ## About Laravel
